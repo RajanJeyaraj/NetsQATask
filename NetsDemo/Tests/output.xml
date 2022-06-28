@@ -1,0 +1,1886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.6.8 on win32)" generated="20200127 12:18:03.169" rpa="false">
+<suite id="s1" name="OrangeHRMTestSuite" source="C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\Tests\OrangeHRMTestSuite.robot">
+<test id="s1-t1" name="TC001_Login Test">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:06.021" level="INFO" html="yes">File '&lt;a href="file://C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx"&gt;C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200127 12:18:06.020" endtime="20200127 12:18:06.021"></status>
+</kw>
+<msg timestamp="20200127 12:18:06.021" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20200127 12:18:06.021" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20200127 12:18:06.020" endtime="20200127 12:18:06.021"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20200127 12:18:06.022" level="INFO">C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20200127 12:18:06.022" endtime="20200127 12:18:06.022"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:06.021" endtime="20200127 12:18:06.022"></status>
+</kw>
+<kw name="Open Excel" library="rbfExcel">
+<doc>*Opens the Excel file to read from the path provided in the file path parameter.*</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:06.022" level="INFO">Opening file at C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20200127 12:18:06.022" endtime="20200127 12:18:06.031"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:06.019" endtime="20200127 12:18:06.031"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Open Browser" library="rbfWEB">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+<arg>${appBrowser}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:06.033" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20200127 12:18:06.033" endtime="20200127 12:18:11.329"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="rbfWEB">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:18:11.329" endtime="20200127 12:18:11.334"></status>
+</kw>
+<kw name="Maximize Browser Window" library="rbfWEB">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200127 12:18:11.334" endtime="20200127 12:18:11.897"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:06.032" endtime="20200127 12:18:11.898"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:11.899" level="INFO">Typing text 'Admin' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20200127 12:18:11.899" endtime="20200127 12:18:12.035"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:11.898" endtime="20200127 12:18:12.036"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:12.038" level="INFO">Typing text 'admin123' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20200127 12:18:12.037" endtime="20200127 12:18:12.161"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:12.037" endtime="20200127 12:18:12.161"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:12.163" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20200127 12:18:12.163" endtime="20200127 12:18:15.097"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:12.162" endtime="20200127 12:18:15.097"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:18:17.100" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:18:15.098" endtime="20200127 12:18:17.100"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:15.098" endtime="20200127 12:18:17.100"></status>
+</kw>
+<kw name="Verify Successful Login" library="Login&amp;LogoutPageKeywords">
+<kw name="Get Text" library="rbfWEB">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${link_WelcomeAdmin}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20200127 12:18:17.207" level="INFO">${temp} = Welcome Admin</msg>
+<status status="PASS" starttime="20200127 12:18:17.102" endtime="20200127 12:18:17.207"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${temp}"=='Welcome Admin'</arg>
+<arg>Log Title</arg>
+</arguments>
+<kw name="Log Title" library="rbfWEB">
+<doc>Logs and returns the title of current page.</doc>
+<msg timestamp="20200127 12:18:17.216" level="INFO">OrangeHRM</msg>
+<status status="PASS" starttime="20200127 12:18:17.208" endtime="20200127 12:18:17.216"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:17.207" endtime="20200127 12:18:17.216"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:17.101" endtime="20200127 12:18:17.217"></status>
+</kw>
+<kw name="Click WelcomeAdmin" library="HomePageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_WelcomeAdmin}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:17.218" level="INFO">Clicking link 'link:Welcome Admin'.</msg>
+<status status="PASS" starttime="20200127 12:18:17.218" endtime="20200127 12:18:17.365"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:17.217" endtime="20200127 12:18:17.365"></status>
+</kw>
+<kw name="Click LogOut" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_logout}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:17.368" level="INFO">Clicking link 'link:Logout'.</msg>
+<status status="PASS" starttime="20200127 12:18:17.367" endtime="20200127 12:18:18.746"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:17.366" endtime="20200127 12:18:18.746"></status>
+</kw>
+<kw name="Close Browser" library="rbfWEB">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200127 12:18:18.748" endtime="20200127 12:18:21.138"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:06.017" endtime="20200127 12:18:21.139" critical="yes"></status>
+</test>
+<test id="s1-t2" name="TC002_LogOut Test">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:21.148" level="INFO" html="yes">File '&lt;a href="file://C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx"&gt;C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200127 12:18:21.147" endtime="20200127 12:18:21.148"></status>
+</kw>
+<msg timestamp="20200127 12:18:21.148" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20200127 12:18:21.148" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20200127 12:18:21.147" endtime="20200127 12:18:21.148"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20200127 12:18:21.150" level="INFO">C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20200127 12:18:21.149" endtime="20200127 12:18:21.150"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:21.149" endtime="20200127 12:18:21.150"></status>
+</kw>
+<kw name="Open Excel" library="rbfExcel">
+<doc>*Opens the Excel file to read from the path provided in the file path parameter.*</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:21.151" level="INFO">Opening file at C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20200127 12:18:21.150" endtime="20200127 12:18:21.159"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:21.146" endtime="20200127 12:18:21.159"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Open Browser" library="rbfWEB">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+<arg>${appBrowser}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:21.161" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20200127 12:18:21.161" endtime="20200127 12:18:26.953"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="rbfWEB">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:18:26.953" endtime="20200127 12:18:26.957"></status>
+</kw>
+<kw name="Maximize Browser Window" library="rbfWEB">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200127 12:18:26.957" endtime="20200127 12:18:27.545"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:21.160" endtime="20200127 12:18:27.545"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:27.547" level="INFO">Typing text 'Admin' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20200127 12:18:27.547" endtime="20200127 12:18:27.765"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:27.546" endtime="20200127 12:18:27.765"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:27.767" level="INFO">Typing text 'admin123' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20200127 12:18:27.766" endtime="20200127 12:18:27.929"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:27.766" endtime="20200127 12:18:27.930"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:27.931" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20200127 12:18:27.931" endtime="20200127 12:18:30.906"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:27.930" endtime="20200127 12:18:30.906"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:18:32.907" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:18:30.907" endtime="20200127 12:18:32.907"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:30.907" endtime="20200127 12:18:32.907"></status>
+</kw>
+<kw name="Click WelcomeAdmin" library="HomePageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_WelcomeAdmin}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:32.909" level="INFO">Clicking link 'link:Welcome Admin'.</msg>
+<status status="PASS" starttime="20200127 12:18:32.909" endtime="20200127 12:18:33.084"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:32.908" endtime="20200127 12:18:33.084"></status>
+</kw>
+<kw name="Click LogOut" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_logout}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:33.086" level="INFO">Clicking link 'link:Logout'.</msg>
+<status status="PASS" starttime="20200127 12:18:33.085" endtime="20200127 12:18:34.480"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:33.085" endtime="20200127 12:18:34.481"></status>
+</kw>
+<kw name="Verify Successful LogOut" library="Login&amp;LogoutPageKeywords">
+<kw name="Title Should Be" library="rbfWEB">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>OrangeHRM</arg>
+</arguments>
+<msg timestamp="20200127 12:18:34.499" level="INFO">Page title is 'OrangeHRM'.</msg>
+<status status="PASS" starttime="20200127 12:18:34.482" endtime="20200127 12:18:34.499"></status>
+</kw>
+<kw name="Log Title" library="rbfWEB">
+<doc>Logs and returns the title of current page.</doc>
+<msg timestamp="20200127 12:18:34.508" level="INFO">OrangeHRM</msg>
+<status status="PASS" starttime="20200127 12:18:34.499" endtime="20200127 12:18:34.508"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:34.482" endtime="20200127 12:18:34.508"></status>
+</kw>
+<kw name="Close Browser" library="rbfWEB">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200127 12:18:34.510" endtime="20200127 12:18:36.861"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:21.145" endtime="20200127 12:18:36.862" critical="yes"></status>
+</test>
+<test id="s1-t3" name="TC003_Login Test Invalid credentials">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:36.871" level="INFO" html="yes">File '&lt;a href="file://C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx"&gt;C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200127 12:18:36.870" endtime="20200127 12:18:36.871"></status>
+</kw>
+<msg timestamp="20200127 12:18:36.871" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20200127 12:18:36.871" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20200127 12:18:36.869" endtime="20200127 12:18:36.871"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20200127 12:18:36.873" level="INFO">C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20200127 12:18:36.872" endtime="20200127 12:18:36.873"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:36.871" endtime="20200127 12:18:36.873"></status>
+</kw>
+<kw name="Open Excel" library="rbfExcel">
+<doc>*Opens the Excel file to read from the path provided in the file path parameter.*</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:36.874" level="INFO">Opening file at C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20200127 12:18:36.873" endtime="20200127 12:18:36.884"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:36.869" endtime="20200127 12:18:36.884"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Open Browser" library="rbfWEB">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+<arg>${appBrowser}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:36.886" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20200127 12:18:36.885" endtime="20200127 12:18:42.303"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="rbfWEB">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:18:42.304" endtime="20200127 12:18:42.311"></status>
+</kw>
+<kw name="Maximize Browser Window" library="rbfWEB">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200127 12:18:42.311" endtime="20200127 12:18:42.782"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:36.885" endtime="20200127 12:18:42.782"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${invalidusername}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:42.784" level="INFO">Typing text 'asde' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20200127 12:18:42.783" endtime="20200127 12:18:42.911"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:42.783" endtime="20200127 12:18:42.911"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${invalidpassword}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:42.913" level="INFO">Typing text 'fdasas' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20200127 12:18:42.913" endtime="20200127 12:18:43.040"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:42.912" endtime="20200127 12:18:43.041"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:43.042" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20200127 12:18:43.042" endtime="20200127 12:18:44.673"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:43.041" endtime="20200127 12:18:44.673"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:18:46.676" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:18:44.675" endtime="20200127 12:18:46.676"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:44.674" endtime="20200127 12:18:46.676"></status>
+</kw>
+<kw name="Verify Failure login" library="Login&amp;LogoutPageKeywords">
+<kw name="Get Text" library="rbfWEB">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${msg_warning}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20200127 12:18:46.735" level="INFO">${temp} = Invalid credentials</msg>
+<status status="PASS" starttime="20200127 12:18:46.678" endtime="20200127 12:18:46.735"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${temp}"=='Invalid credentials'</arg>
+<arg>Log Title</arg>
+</arguments>
+<kw name="Log Title" library="rbfWEB">
+<doc>Logs and returns the title of current page.</doc>
+<msg timestamp="20200127 12:18:46.747" level="INFO">OrangeHRM</msg>
+<status status="PASS" starttime="20200127 12:18:46.737" endtime="20200127 12:18:46.748"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:46.736" endtime="20200127 12:18:46.748"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:46.677" endtime="20200127 12:18:46.748"></status>
+</kw>
+<kw name="Close Browser" library="rbfWEB">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200127 12:18:46.749" endtime="20200127 12:18:49.094"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:36.866" endtime="20200127 12:18:49.095" critical="yes"></status>
+</test>
+<test id="s1-t4" name="TC004_About Pop up check">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:49.103" level="INFO" html="yes">File '&lt;a href="file://C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx"&gt;C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200127 12:18:49.102" endtime="20200127 12:18:49.103"></status>
+</kw>
+<msg timestamp="20200127 12:18:49.103" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20200127 12:18:49.103" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20200127 12:18:49.101" endtime="20200127 12:18:49.103"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20200127 12:18:49.105" level="INFO">C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20200127 12:18:49.104" endtime="20200127 12:18:49.105"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:49.104" endtime="20200127 12:18:49.105"></status>
+</kw>
+<kw name="Open Excel" library="rbfExcel">
+<doc>*Opens the Excel file to read from the path provided in the file path parameter.*</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:49.106" level="INFO">Opening file at C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20200127 12:18:49.105" endtime="20200127 12:18:49.112"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:49.100" endtime="20200127 12:18:49.112"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Open Browser" library="rbfWEB">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+<arg>${appBrowser}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:49.115" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20200127 12:18:49.114" endtime="20200127 12:18:55.058"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="rbfWEB">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:18:55.058" endtime="20200127 12:18:55.061"></status>
+</kw>
+<kw name="Maximize Browser Window" library="rbfWEB">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200127 12:18:55.062" endtime="20200127 12:18:55.312"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:49.113" endtime="20200127 12:18:55.312"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:55.314" level="INFO">Typing text 'Admin' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20200127 12:18:55.313" endtime="20200127 12:18:55.519"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:55.312" endtime="20200127 12:18:55.519"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:55.521" level="INFO">Typing text 'admin123' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20200127 12:18:55.521" endtime="20200127 12:18:55.653"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:55.520" endtime="20200127 12:18:55.653"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20200127 12:18:55.655" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20200127 12:18:55.654" endtime="20200127 12:18:59.499"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:55.654" endtime="20200127 12:18:59.499"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:01.500" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:18:59.500" endtime="20200127 12:19:01.500"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:59.499" endtime="20200127 12:19:01.500"></status>
+</kw>
+<kw name="Click WelcomeAdmin" library="HomePageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_WelcomeAdmin}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:01.501" level="INFO">Clicking link 'link:Welcome Admin'.</msg>
+<status status="PASS" starttime="20200127 12:19:01.501" endtime="20200127 12:19:01.636"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:01.501" endtime="20200127 12:19:01.636"></status>
+</kw>
+<kw name="Click About" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_about}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:01.638" level="INFO">Clicking link 'link:About'.</msg>
+<status status="PASS" starttime="20200127 12:19:01.638" endtime="20200127 12:19:02.043"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:01.637" endtime="20200127 12:19:02.043"></status>
+</kw>
+<kw name="Display details About PopUp" library="HomePageKeywords">
+<kw name="Get Text" library="rbfWEB">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${popup_data}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20200127 12:19:02.114" level="INFO">${temp} = Company Name: OrangeHRM (Pvt) Ltd
+Version: Orangehrm OS 4.3.3
+Active Employees: 9
+Employees Terminated: 0</msg>
+<status status="PASS" starttime="20200127 12:19:02.045" endtime="20200127 12:19:02.115"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${temp}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:02.115" endtime="20200127 12:19:02.116"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:02.044" endtime="20200127 12:19:02.117"></status>
+</kw>
+<kw name="Press Escape Key" library="HomePageKeywords">
+<kw name="Press Keys" library="rbfWEB">
+<doc>Simulates user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${popup_data}</arg>
+<arg>ESC</arg>
+</arguments>
+<msg timestamp="20200127 12:19:02.122" level="INFO">Sending key(s) ('ESC',) to xPath://form[@name='frmSelectEmployees']/Div/Div element.</msg>
+<msg timestamp="20200127 12:19:02.143" level="INFO">Pressing special key ESCAPE to element.</msg>
+<status status="PASS" starttime="20200127 12:19:02.121" endtime="20200127 12:19:03.349"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:02.119" endtime="20200127 12:19:03.349"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:05.350" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:19:03.350" endtime="20200127 12:19:05.350"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:03.350" endtime="20200127 12:19:05.350"></status>
+</kw>
+<kw name="Click LogOut" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_logout}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:05.351" level="INFO">Clicking link 'link:Logout'.</msg>
+<status status="PASS" starttime="20200127 12:19:05.351" endtime="20200127 12:19:06.333"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:05.351" endtime="20200127 12:19:06.333"></status>
+</kw>
+<kw name="Close Browser" library="rbfWEB">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200127 12:19:06.334" endtime="20200127 12:19:08.673"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:18:49.098" endtime="20200127 12:19:08.674" critical="yes"></status>
+</test>
+<test id="s1-t5" name="TC005_Verify Pop up companyname">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:08.681" level="INFO" html="yes">File '&lt;a href="file://C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx"&gt;C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200127 12:19:08.680" endtime="20200127 12:19:08.681"></status>
+</kw>
+<msg timestamp="20200127 12:19:08.681" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20200127 12:19:08.681" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20200127 12:19:08.680" endtime="20200127 12:19:08.681"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20200127 12:19:08.682" level="INFO">C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20200127 12:19:08.682" endtime="20200127 12:19:08.682"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:08.682" endtime="20200127 12:19:08.682"></status>
+</kw>
+<kw name="Open Excel" library="rbfExcel">
+<doc>*Opens the Excel file to read from the path provided in the file path parameter.*</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:08.683" level="INFO">Opening file at C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20200127 12:19:08.682" endtime="20200127 12:19:08.687"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:08.679" endtime="20200127 12:19:08.687"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Open Browser" library="rbfWEB">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+<arg>${appBrowser}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:08.688" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20200127 12:19:08.688" endtime="20200127 12:19:14.251"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="rbfWEB">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:14.252" endtime="20200127 12:19:14.256"></status>
+</kw>
+<kw name="Maximize Browser Window" library="rbfWEB">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200127 12:19:14.256" endtime="20200127 12:19:14.850"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:08.688" endtime="20200127 12:19:14.850"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:14.852" level="INFO">Typing text 'Admin' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20200127 12:19:14.852" endtime="20200127 12:19:15.114"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:14.851" endtime="20200127 12:19:15.114"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:15.115" level="INFO">Typing text 'admin123' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20200127 12:19:15.115" endtime="20200127 12:19:15.277"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:15.115" endtime="20200127 12:19:15.278"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:15.279" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20200127 12:19:15.279" endtime="20200127 12:19:19.859"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:15.278" endtime="20200127 12:19:19.860"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:21.862" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:19:19.862" endtime="20200127 12:19:21.862"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:19.860" endtime="20200127 12:19:21.862"></status>
+</kw>
+<kw name="Click WelcomeAdmin" library="HomePageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_WelcomeAdmin}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:21.864" level="INFO">Clicking link 'link:Welcome Admin'.</msg>
+<status status="PASS" starttime="20200127 12:19:21.863" endtime="20200127 12:19:22.000"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:21.863" endtime="20200127 12:19:22.000"></status>
+</kw>
+<kw name="Click About" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_about}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:22.002" level="INFO">Clicking link 'link:About'.</msg>
+<status status="PASS" starttime="20200127 12:19:22.002" endtime="20200127 12:19:22.429"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:22.001" endtime="20200127 12:19:22.429"></status>
+</kw>
+<kw name="Verify Company details in PopUp" library="HomePageKeywords">
+<kw name="Get Text" library="rbfWEB">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${popup_data_companyname}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20200127 12:19:22.507" level="INFO">${temp} = Company Name: OrangeHRM (Pvt) Ltd</msg>
+<status status="PASS" starttime="20200127 12:19:22.431" endtime="20200127 12:19:22.507"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${temp}"=="Company Name: OrangeHRM (Pvt) Ltd"</arg>
+<arg>Log</arg>
+<arg>Company name is correct</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Company name is correct</arg>
+</arguments>
+<msg timestamp="20200127 12:19:22.510" level="INFO">Company name is correct</msg>
+<status status="PASS" starttime="20200127 12:19:22.509" endtime="20200127 12:19:22.510"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:22.508" endtime="20200127 12:19:22.510"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:22.430" endtime="20200127 12:19:22.510"></status>
+</kw>
+<kw name="Press Escape Key" library="HomePageKeywords">
+<kw name="Press Keys" library="rbfWEB">
+<doc>Simulates user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>${popup_data}</arg>
+<arg>ESC</arg>
+</arguments>
+<msg timestamp="20200127 12:19:22.513" level="INFO">Sending key(s) ('ESC',) to xPath://form[@name='frmSelectEmployees']/Div/Div element.</msg>
+<msg timestamp="20200127 12:19:22.538" level="INFO">Pressing special key ESCAPE to element.</msg>
+<status status="PASS" starttime="20200127 12:19:22.512" endtime="20200127 12:19:23.786"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:22.511" endtime="20200127 12:19:23.786"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:25.788" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:19:23.788" endtime="20200127 12:19:25.788"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:23.787" endtime="20200127 12:19:25.788"></status>
+</kw>
+<kw name="Click LogOut" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_logout}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:25.790" level="INFO">Clicking link 'link:Logout'.</msg>
+<status status="PASS" starttime="20200127 12:19:25.789" endtime="20200127 12:19:27.220"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:25.789" endtime="20200127 12:19:27.220"></status>
+</kw>
+<kw name="Close Browser" library="rbfWEB">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200127 12:19:27.221" endtime="20200127 12:19:29.569"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:08.676" endtime="20200127 12:19:29.570" critical="yes"></status>
+</test>
+<test id="s1-t6" name="TC006_Verify Name Search Directory">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:29.578" level="INFO" html="yes">File '&lt;a href="file://C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx"&gt;C:\Users\ab55972\eclipse-workspace\OrangeHRMRobotProject\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200127 12:19:29.577" endtime="20200127 12:19:29.578"></status>
+</kw>
+<msg timestamp="20200127 12:19:29.578" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20200127 12:19:29.578" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20200127 12:19:29.576" endtime="20200127 12:19:29.578"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20200127 12:19:29.580" level="INFO">C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20200127 12:19:29.579" endtime="20200127 12:19:29.580"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:29.579" endtime="20200127 12:19:29.580"></status>
+</kw>
+<kw name="Open Excel" library="rbfExcel">
+<doc>*Opens the Excel file to read from the path provided in the file path parameter.*</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:29.580" level="INFO">Opening file at C:/Users/ab55972/eclipse-workspace/OrangeHRMRobotProject/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20200127 12:19:29.580" endtime="20200127 12:19:29.584"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:29.575" endtime="20200127 12:19:29.584"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<kw name="Open Browser" library="rbfWEB">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+<arg>${appBrowser}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:29.586" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20200127 12:19:29.585" endtime="20200127 12:19:35.143"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="rbfWEB">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:35.144" endtime="20200127 12:19:35.151"></status>
+</kw>
+<kw name="Maximize Browser Window" library="rbfWEB">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200127 12:19:35.151" endtime="20200127 12:19:35.723"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:29.585" endtime="20200127 12:19:35.723"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:35.724" level="INFO">Typing text 'Admin' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20200127 12:19:35.724" endtime="20200127 12:19:35.912"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:35.724" endtime="20200127 12:19:35.912"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:35.914" level="INFO">Typing text 'admin123' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20200127 12:19:35.913" endtime="20200127 12:19:36.048"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:35.913" endtime="20200127 12:19:36.048"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:36.049" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20200127 12:19:36.049" endtime="20200127 12:19:39.950"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:36.049" endtime="20200127 12:19:39.950"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:41.953" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:19:39.952" endtime="20200127 12:19:41.953"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:39.951" endtime="20200127 12:19:41.953"></status>
+</kw>
+<kw name="Click Directory link" library="HomePageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_directory}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:41.955" level="INFO">Clicking link 'link:Directory'.</msg>
+<status status="PASS" starttime="20200127 12:19:41.955" endtime="20200127 12:19:44.054"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:41.954" endtime="20200127 12:19:44.055"></status>
+</kw>
+<kw name="Click Reset Button" library="DirectoryPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_reset}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:44.056" level="INFO">Clicking button 'id:resetBtn'.</msg>
+<status status="PASS" starttime="20200127 12:19:44.056" endtime="20200127 12:19:46.083"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:44.055" endtime="20200127 12:19:46.083"></status>
+</kw>
+<kw name="Get data from Excel with given column" library="ExcelDataRead">
+<arguments>
+<arg>Sheet1</arg>
+<arg>TC006_Verify Name Search Directory</arg>
+<arg>name</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sColumnName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:46.085" level="INFO">name</msg>
+<status status="PASS" starttime="20200127 12:19:46.085" endtime="20200127 12:19:46.085"></status>
+</kw>
+<kw name="Get Column Count" library="rbfExcel">
+<doc>*Returns the specific number of columns of the sheet name specified.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${colCount}</var>
+</assign>
+<msg timestamp="20200127 12:19:46.086" level="INFO">${colCount} = 4</msg>
+<status status="PASS" starttime="20200127 12:19:46.085" endtime="20200127 12:19:46.086"></status>
+</kw>
+<kw name="${y} IN RANGE [ 0 | ${colCount} ]" type="for">
+<kw name="${y} = 0" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:46.087" level="INFO">${header} = TestCases</msg>
+<status status="PASS" starttime="20200127 12:19:46.086" endtime="20200127 12:19:46.087"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:46.087" endtime="20200127 12:19:46.088"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.086" endtime="20200127 12:19:46.088"></status>
+</kw>
+<kw name="${y} = 1" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:46.089" level="INFO">${header} = name</msg>
+<status status="PASS" starttime="20200127 12:19:46.088" endtime="20200127 12:19:46.090"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200127 12:19:46.091" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200127 12:19:46.091" endtime="20200127 12:19:46.091"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.090" endtime="20200127 12:19:46.091"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.088" endtime="20200127 12:19:46.091"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.086" endtime="20200127 12:19:46.091"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${colNum}</arg>
+<arg>${y}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:46.092" level="INFO">${colNum} = 1</msg>
+<status status="PASS" starttime="20200127 12:19:46.092" endtime="20200127 12:19:46.092"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${colNum}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:46.092" endtime="20200127 12:19:46.093"></status>
+</kw>
+<kw name="Get Row Count" library="rbfExcel">
+<doc>*Returns the specific number of rows of the sheet name specified.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${iTotalRows}</var>
+</assign>
+<msg timestamp="20200127 12:19:46.094" level="INFO">${iTotalRows} = 2</msg>
+<status status="PASS" starttime="20200127 12:19:46.093" endtime="20200127 12:19:46.094"></status>
+</kw>
+<kw name="${iRowNo} IN RANGE [ 1 | ${iTotalRows} ]" type="for">
+<kw name="${iRowNo} = 1" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>0</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${TC_Num}</var>
+</assign>
+<msg timestamp="20200127 12:19:46.095" level="INFO">${TC_Num} = TC006_Verify Name Search Directory</msg>
+<status status="PASS" starttime="20200127 12:19:46.095" endtime="20200127 12:19:46.095"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Read Cell Data</arg>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${sSearchedData}</var>
+</assign>
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:46.097" endtime="20200127 12:19:46.097"></status>
+</kw>
+<msg timestamp="20200127 12:19:46.097" level="INFO">${sSearchedData} = KIM Anderson</msg>
+<status status="PASS" starttime="20200127 12:19:46.096" endtime="20200127 12:19:46.097"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200127 12:19:46.099" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200127 12:19:46.099" endtime="20200127 12:19:46.099"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.098" endtime="20200127 12:19:46.099"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.094" endtime="20200127 12:19:46.099"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.094" endtime="20200127 12:19:46.100"></status>
+</kw>
+<msg timestamp="20200127 12:19:46.100" level="INFO">${name} = KIM Anderson</msg>
+<status status="PASS" starttime="20200127 12:19:46.084" endtime="20200127 12:19:46.100"></status>
+</kw>
+<kw name="Enter the Name" library="DirectoryPageKeywords">
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<kw name="Input Text" library="rbfWEB">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${name_name}</arg>
+<arg>${name}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:46.102" level="INFO">Typing text 'KIM Anderson' into text field 'name:searchDirectory[emp_name][empName]'.</msg>
+<status status="PASS" starttime="20200127 12:19:46.102" endtime="20200127 12:19:46.339"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.101" endtime="20200127 12:19:46.339"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.342" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:19:46.341" endtime="20200127 12:19:48.342"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:46.340" endtime="20200127 12:19:48.342"></status>
+</kw>
+<kw name="Get data from Excel with given column" library="ExcelDataRead">
+<arguments>
+<arg>Sheet1</arg>
+<arg>TC006_Verify Name Search Directory</arg>
+<arg>jobtitle</arg>
+</arguments>
+<assign>
+<var>${jobtitle}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sColumnName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.344" level="INFO">jobtitle</msg>
+<status status="PASS" starttime="20200127 12:19:48.344" endtime="20200127 12:19:48.344"></status>
+</kw>
+<kw name="Get Column Count" library="rbfExcel">
+<doc>*Returns the specific number of columns of the sheet name specified.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${colCount}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.345" level="INFO">${colCount} = 4</msg>
+<status status="PASS" starttime="20200127 12:19:48.344" endtime="20200127 12:19:48.345"></status>
+</kw>
+<kw name="${y} IN RANGE [ 0 | ${colCount} ]" type="for">
+<kw name="${y} = 0" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.346" level="INFO">${header} = TestCases</msg>
+<status status="PASS" starttime="20200127 12:19:48.346" endtime="20200127 12:19:48.346"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.346" endtime="20200127 12:19:48.347"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.345" endtime="20200127 12:19:48.347"></status>
+</kw>
+<kw name="${y} = 1" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.348" level="INFO">${header} = name</msg>
+<status status="PASS" starttime="20200127 12:19:48.347" endtime="20200127 12:19:48.348"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.348" endtime="20200127 12:19:48.349"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.347" endtime="20200127 12:19:48.349"></status>
+</kw>
+<kw name="${y} = 2" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.350" level="INFO">${header} = jobtitle</msg>
+<status status="PASS" starttime="20200127 12:19:48.349" endtime="20200127 12:19:48.350"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200127 12:19:48.351" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200127 12:19:48.351" endtime="20200127 12:19:48.351"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.350" endtime="20200127 12:19:48.351"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.349" endtime="20200127 12:19:48.351"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.345" endtime="20200127 12:19:48.352"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${colNum}</arg>
+<arg>${y}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.353" level="INFO">${colNum} = 2</msg>
+<status status="PASS" starttime="20200127 12:19:48.352" endtime="20200127 12:19:48.353"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${colNum}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.353" endtime="20200127 12:19:48.354"></status>
+</kw>
+<kw name="Get Row Count" library="rbfExcel">
+<doc>*Returns the specific number of rows of the sheet name specified.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${iTotalRows}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.354" level="INFO">${iTotalRows} = 2</msg>
+<status status="PASS" starttime="20200127 12:19:48.354" endtime="20200127 12:19:48.354"></status>
+</kw>
+<kw name="${iRowNo} IN RANGE [ 1 | ${iTotalRows} ]" type="for">
+<kw name="${iRowNo} = 1" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>0</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${TC_Num}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.357" level="INFO">${TC_Num} = TC006_Verify Name Search Directory</msg>
+<status status="PASS" starttime="20200127 12:19:48.355" endtime="20200127 12:19:48.357"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Read Cell Data</arg>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${sSearchedData}</var>
+</assign>
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.358" endtime="20200127 12:19:48.359"></status>
+</kw>
+<msg timestamp="20200127 12:19:48.359" level="INFO">${sSearchedData} = HR Manager</msg>
+<status status="PASS" starttime="20200127 12:19:48.357" endtime="20200127 12:19:48.359"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200127 12:19:48.360" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200127 12:19:48.360" endtime="20200127 12:19:48.360"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.359" endtime="20200127 12:19:48.360"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.355" endtime="20200127 12:19:48.361"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.355" endtime="20200127 12:19:48.361"></status>
+</kw>
+<msg timestamp="20200127 12:19:48.361" level="INFO">${jobtitle} = HR Manager</msg>
+<status status="PASS" starttime="20200127 12:19:48.343" endtime="20200127 12:19:48.361"></status>
+</kw>
+<kw name="Select Job Title" library="DirectoryPageKeywords">
+<arguments>
+<arg>${jobtitle}</arg>
+</arguments>
+<kw name="Select From List By Label" library="rbfWEB">
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<arguments>
+<arg>${select_jobtitle}</arg>
+<arg>${jobtitle}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.364" level="INFO">Selecting options from selection list 'id:searchDirectory_job_title' by label HR Manager.</msg>
+<status status="PASS" starttime="20200127 12:19:48.363" endtime="20200127 12:19:48.492"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.363" endtime="20200127 12:19:48.493"></status>
+</kw>
+<kw name="Get data from Excel with given column" library="ExcelDataRead">
+<arguments>
+<arg>Sheet1</arg>
+<arg>TC006_Verify Name Search Directory</arg>
+<arg>location</arg>
+</arguments>
+<assign>
+<var>${location}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sColumnName}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.495" level="INFO">location</msg>
+<status status="PASS" starttime="20200127 12:19:48.495" endtime="20200127 12:19:48.495"></status>
+</kw>
+<kw name="Get Column Count" library="rbfExcel">
+<doc>*Returns the specific number of columns of the sheet name specified.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${colCount}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.496" level="INFO">${colCount} = 4</msg>
+<status status="PASS" starttime="20200127 12:19:48.495" endtime="20200127 12:19:48.496"></status>
+</kw>
+<kw name="${y} IN RANGE [ 0 | ${colCount} ]" type="for">
+<kw name="${y} = 0" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.496" level="INFO">${header} = TestCases</msg>
+<status status="PASS" starttime="20200127 12:19:48.496" endtime="20200127 12:19:48.496"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.497" endtime="20200127 12:19:48.497"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.496" endtime="20200127 12:19:48.497"></status>
+</kw>
+<kw name="${y} = 1" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.498" level="INFO">${header} = name</msg>
+<status status="PASS" starttime="20200127 12:19:48.497" endtime="20200127 12:19:48.498"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.498" endtime="20200127 12:19:48.498"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.497" endtime="20200127 12:19:48.498"></status>
+</kw>
+<kw name="${y} = 2" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.499" level="INFO">${header} = jobtitle</msg>
+<status status="PASS" starttime="20200127 12:19:48.498" endtime="20200127 12:19:48.499"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.499" endtime="20200127 12:19:48.499"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.498" endtime="20200127 12:19:48.499"></status>
+</kw>
+<kw name="${y} = 3" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.500" level="INFO">${header} = location</msg>
+<status status="PASS" starttime="20200127 12:19:48.499" endtime="20200127 12:19:48.500"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200127 12:19:48.501" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200127 12:19:48.500" endtime="20200127 12:19:48.501"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.500" endtime="20200127 12:19:48.501"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.499" endtime="20200127 12:19:48.501"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.496" endtime="20200127 12:19:48.501"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${colNum}</arg>
+<arg>${y}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.501" level="INFO">${colNum} = 3</msg>
+<status status="PASS" starttime="20200127 12:19:48.501" endtime="20200127 12:19:48.501"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${colNum}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.501" endtime="20200127 12:19:48.502"></status>
+</kw>
+<kw name="Get Row Count" library="rbfExcel">
+<doc>*Returns the specific number of rows of the sheet name specified.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${iTotalRows}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.503" level="INFO">${iTotalRows} = 2</msg>
+<status status="PASS" starttime="20200127 12:19:48.502" endtime="20200127 12:19:48.503"></status>
+</kw>
+<kw name="${iRowNo} IN RANGE [ 1 | ${iTotalRows} ]" type="for">
+<kw name="${iRowNo} = 1" type="foritem">
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>0</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${TC_Num}</var>
+</assign>
+<msg timestamp="20200127 12:19:48.504" level="INFO">${TC_Num} = TC006_Verify Name Search Directory</msg>
+<status status="PASS" starttime="20200127 12:19:48.504" endtime="20200127 12:19:48.504"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Read Cell Data</arg>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${sSearchedData}</var>
+</assign>
+<kw name="Read Cell Data" library="rbfExcel">
+<doc>*Uses the column and row to return the data from that cell.*</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:48.505" endtime="20200127 12:19:48.506"></status>
+</kw>
+<msg timestamp="20200127 12:19:48.506" level="INFO">${sSearchedData} = 6</msg>
+<status status="PASS" starttime="20200127 12:19:48.505" endtime="20200127 12:19:48.506"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200127 12:19:48.506" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200127 12:19:48.506" endtime="20200127 12:19:48.507"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.506" endtime="20200127 12:19:48.507"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.504" endtime="20200127 12:19:48.507"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.503" endtime="20200127 12:19:48.507"></status>
+</kw>
+<msg timestamp="20200127 12:19:48.507" level="INFO">${location} = 6</msg>
+<status status="PASS" starttime="20200127 12:19:48.493" endtime="20200127 12:19:48.507"></status>
+</kw>
+<kw name="Select location" library="DirectoryPageKeywords">
+<arguments>
+<arg>${location}</arg>
+</arguments>
+<kw name="Select From List By Index" library="rbfWEB">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>${select_location}</arg>
+<arg>${location}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.509" level="INFO">Selecting options from selection list 'id:searchDirectory_location' by index 6.</msg>
+<status status="PASS" starttime="20200127 12:19:48.508" endtime="20200127 12:19:48.709"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.508" endtime="20200127 12:19:48.709"></status>
+</kw>
+<kw name="Click Search Button" library="DirectoryPageKeywords">
+<kw name="Click Button" library="rbfWEB">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_search}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:48.710" level="INFO">Clicking button 'id:searchBtn'.</msg>
+<status status="PASS" starttime="20200127 12:19:48.710" endtime="20200127 12:19:49.612"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:48.710" endtime="20200127 12:19:49.612"></status>
+</kw>
+<kw name="Verify Name in Search Directory" library="DirectoryPageKeywords">
+<arguments>
+<arg>${name}</arg>
+</arguments>
+<kw name="Get Text" library="rbfWEB">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${tabledata_directory}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20200127 12:19:49.677" level="INFO">${temp} = KIM Anderson
+HR Manager
+Administration
+Texas R&amp;D</msg>
+<status status="PASS" starttime="20200127 12:19:49.614" endtime="20200127 12:19:49.677"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${temp}</arg>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" starttime="20200127 12:19:49.677" endtime="20200127 12:19:49.678"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:49.613" endtime="20200127 12:19:49.678"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20200127 12:19:51.680" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20200127 12:19:49.679" endtime="20200127 12:19:51.680"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:49.679" endtime="20200127 12:19:51.680"></status>
+</kw>
+<kw name="Click WelcomeAdmin" library="HomePageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_WelcomeAdmin}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:51.682" level="INFO">Clicking link 'link:Welcome Admin'.</msg>
+<status status="PASS" starttime="20200127 12:19:51.682" endtime="20200127 12:19:51.821"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:51.681" endtime="20200127 12:19:51.822"></status>
+</kw>
+<kw name="Click LogOut" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Link" library="rbfWEB">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${link_logout}</arg>
+</arguments>
+<msg timestamp="20200127 12:19:51.824" level="INFO">Clicking link 'link:Logout'.</msg>
+<status status="PASS" starttime="20200127 12:19:51.824" endtime="20200127 12:19:53.029"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:51.823" endtime="20200127 12:19:53.030"></status>
+</kw>
+<kw name="Close Browser" library="rbfWEB">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200127 12:19:53.030" endtime="20200127 12:19:55.387"></status>
+</kw>
+<status status="PASS" starttime="20200127 12:19:29.572" endtime="20200127 12:19:55.388" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200127 12:18:03.175" endtime="20200127 12:19:55.390"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0">Critical Tests</stat>
+<stat pass="6" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" id="s1" name="OrangeHRMTestSuite">OrangeHRMTestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

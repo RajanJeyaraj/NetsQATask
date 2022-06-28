@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.0 on win32)" generated="20220627 22:31:58.095" rpa="false">
+<suite id="s1" name="NetsDemo" source="C:\EclipseWorkSpace\NetsDemo">
+<suite id="s1-s1" name="Tests" source="C:\EclipseWorkSpace\NetsDemo\Tests">
+<suite id="s1-s1-s1" name="01.OrangeHRMTestSuite" source="C:\EclipseWorkSpace\NetsDemo\Tests\01.OrangeHRMTestSuite.robot">
+<test id="s1-s1-s1-t1" name="TC_001_Verify_Login_Invalid_Credentials_message">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20220627 22:31:59.502" level="INFO" html="yes">File '&lt;a href="file://C:\EclipseWorkSpace\NetsDemo\TestData\OrangeHRM_TestData.xlsx"&gt;C:\EclipseWorkSpace\NetsDemo\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220627 22:31:59.501" endtime="20220627 22:31:59.502"></status>
+</kw>
+<msg timestamp="20220627 22:31:59.502" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20220627 22:31:59.502" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20220627 22:31:59.500" endtime="20220627 22:31:59.503"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20220627 22:31:59.504" level="INFO">C:/EclipseWorkSpace/NetsDemo/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20220627 22:31:59.503" endtime="20220627 22:31:59.504"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:31:59.503" endtime="20220627 22:31:59.504"></status>
+</kw>
+<kw name="Open Excel" library="ExcelRobot">
+<doc>Opens the Excel file to read from the path provided in the file path parameter.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20220627 22:31:59.505" level="INFO">Opening file at C:/EclipseWorkSpace/NetsDemo/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20220627 22:31:59.504" endtime="20220627 22:31:59.509"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:31:59.500" endtime="20220627 22:31:59.509"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>executable_path=${executable_path}</arg>
+</arguments>
+<msg timestamp="20220627 22:31:59.511" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220627 22:31:59.511" endtime="20220627 22:32:02.531"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:02.535" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/'</msg>
+<status status="PASS" starttime="20220627 22:32:02.533" endtime="20220627 22:32:04.591"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.592" endtime="20220627 22:32:04.594"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220627 22:32:04.594" endtime="20220627 22:32:04.716"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:31:59.510" endtime="20220627 22:32:04.716"></status>
+</kw>
+<kw name="Get data from Excel with given column" library="ExcelDataRead">
+<arguments>
+<arg>Sheet1</arg>
+<arg>TC_001_Verify_Login_Invalid_Credentials_message</arg>
+<arg>username</arg>
+</arguments>
+<assign>
+<var>${invalidusername}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sColumnName}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.718" level="INFO">username</msg>
+<status status="PASS" starttime="20220627 22:32:04.717" endtime="20220627 22:32:04.718"></status>
+</kw>
+<kw name="Get Column Count" library="ExcelRobot">
+<doc>Returns the specific number of columns of the sheet name specified.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${colCount}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.719" level="INFO">${colCount} = 3</msg>
+<status status="PASS" starttime="20220627 22:32:04.718" endtime="20220627 22:32:04.719"></status>
+</kw>
+<kw name="${y} IN RANGE [ 0 | ${colCount} ]" type="for">
+<msg timestamp="20220627 22:32:04.719" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 23: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<kw name="${y} = 0" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.720" level="INFO">${header} = TestCases</msg>
+<status status="PASS" starttime="20220627 22:32:04.720" endtime="20220627 22:32:04.721"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.721" endtime="20220627 22:32:04.721"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.720" endtime="20220627 22:32:04.721"></status>
+</kw>
+<kw name="${y} = 1" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.722" level="INFO">${header} = username</msg>
+<status status="PASS" starttime="20220627 22:32:04.722" endtime="20220627 22:32:04.723"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220627 22:32:04.724" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220627 22:32:04.723" endtime="20220627 22:32:04.724"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.723" endtime="20220627 22:32:04.724"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.722" endtime="20220627 22:32:04.724"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.719" endtime="20220627 22:32:04.724"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${colNum}</arg>
+<arg>${y}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.726" level="INFO">${colNum} = 1</msg>
+<status status="PASS" starttime="20220627 22:32:04.725" endtime="20220627 22:32:04.726"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${colNum}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.726" endtime="20220627 22:32:04.726"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelRobot">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${iTotalRows}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.728" level="INFO">${iTotalRows} = 2</msg>
+<status status="PASS" starttime="20220627 22:32:04.727" endtime="20220627 22:32:04.728"></status>
+</kw>
+<kw name="${iRowNo} IN RANGE [ 1 | ${iTotalRows} ]" type="for">
+<msg timestamp="20220627 22:32:04.728" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 32: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<kw name="${iRowNo} = 1" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>0</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${TC_Num}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.729" level="INFO">${TC_Num} = TC_001_Verify_Login_Invalid_Credentials_message</msg>
+<status status="PASS" starttime="20220627 22:32:04.729" endtime="20220627 22:32:04.729"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Read Cell Data</arg>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${sSearchedData}</var>
+</assign>
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.730" endtime="20220627 22:32:04.731"></status>
+</kw>
+<msg timestamp="20220627 22:32:04.731" level="INFO">${sSearchedData} = asde</msg>
+<status status="PASS" starttime="20220627 22:32:04.730" endtime="20220627 22:32:04.731"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220627 22:32:04.732" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220627 22:32:04.732" endtime="20220627 22:32:04.732"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.731" endtime="20220627 22:32:04.733"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.729" endtime="20220627 22:32:04.733"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.728" endtime="20220627 22:32:04.733"></status>
+</kw>
+<msg timestamp="20220627 22:32:04.733" level="INFO">${invalidusername} = asde</msg>
+<status status="PASS" starttime="20220627 22:32:04.716" endtime="20220627 22:32:04.733"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${invalidusername}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.735" level="INFO">Typing text 'asde' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20220627 22:32:04.734" endtime="20220627 22:32:04.823"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.734" endtime="20220627 22:32:04.824"></status>
+</kw>
+<kw name="Get data from Excel with given column" library="ExcelDataRead">
+<arguments>
+<arg>Sheet1</arg>
+<arg>TC_001_Verify_Login_Invalid_Credentials_message</arg>
+<arg>password</arg>
+</arguments>
+<assign>
+<var>${invalidpassword}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${sColumnName}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.826" level="INFO">password</msg>
+<status status="PASS" starttime="20220627 22:32:04.825" endtime="20220627 22:32:04.826"></status>
+</kw>
+<kw name="Get Column Count" library="ExcelRobot">
+<doc>Returns the specific number of columns of the sheet name specified.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${colCount}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.827" level="INFO">${colCount} = 3</msg>
+<status status="PASS" starttime="20220627 22:32:04.826" endtime="20220627 22:32:04.827"></status>
+</kw>
+<kw name="${y} IN RANGE [ 0 | ${colCount} ]" type="for">
+<msg timestamp="20220627 22:32:04.827" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 23: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<kw name="${y} = 0" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.828" level="INFO">${header} = TestCases</msg>
+<status status="PASS" starttime="20220627 22:32:04.828" endtime="20220627 22:32:04.829"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.829" endtime="20220627 22:32:04.831"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.828" endtime="20220627 22:32:04.831"></status>
+</kw>
+<kw name="${y} = 1" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.832" level="INFO">${header} = username</msg>
+<status status="PASS" starttime="20220627 22:32:04.832" endtime="20220627 22:32:04.832"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.833" endtime="20220627 22:32:04.833"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.831" endtime="20220627 22:32:04.833"></status>
+</kw>
+<kw name="${y} = 2" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${y}</arg>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.835" level="INFO">${header} = password</msg>
+<status status="PASS" starttime="20220627 22:32:04.834" endtime="20220627 22:32:04.835"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${header}"=="${sColumnName}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220627 22:32:04.836" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220627 22:32:04.836" endtime="20220627 22:32:04.836"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.835" endtime="20220627 22:32:04.836"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.834" endtime="20220627 22:32:04.836"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.827" endtime="20220627 22:32:04.837"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${colNum}</arg>
+<arg>${y}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.837" level="INFO">${colNum} = 2</msg>
+<status status="PASS" starttime="20220627 22:32:04.837" endtime="20220627 22:32:04.838"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${colNum}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.838" endtime="20220627 22:32:04.838"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelRobot">
+<doc>Returns the specific number of rows of the sheet name specified.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+</arguments>
+<assign>
+<var>${iTotalRows}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.839" level="INFO">${iTotalRows} = 2</msg>
+<status status="PASS" starttime="20220627 22:32:04.839" endtime="20220627 22:32:04.839"></status>
+</kw>
+<kw name="${iRowNo} IN RANGE [ 1 | ${iTotalRows} ]" type="for">
+<msg timestamp="20220627 22:32:04.839" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 32: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<kw name="${iRowNo} = 1" type="foritem">
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>0</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${TC_Num}</var>
+</assign>
+<msg timestamp="20220627 22:32:04.841" level="INFO">${TC_Num} = TC_001_Verify_Login_Invalid_Credentials_message</msg>
+<status status="PASS" starttime="20220627 22:32:04.840" endtime="20220627 22:32:04.841"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Read Cell Data</arg>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<assign>
+<var>${sSearchedData}</var>
+</assign>
+<kw name="Read Cell Data" library="ExcelRobot">
+<doc>Uses the column and row to return the data from that cell.</doc>
+<arguments>
+<arg>${sSheetName}</arg>
+<arg>${colNum}</arg>
+<arg>${iRowNo}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:04.842" endtime="20220627 22:32:04.842"></status>
+</kw>
+<msg timestamp="20220627 22:32:04.842" level="INFO">${sSearchedData} = fdasas</msg>
+<status status="PASS" starttime="20220627 22:32:04.841" endtime="20220627 22:32:04.842"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${sTestCaseNo}"=="${TC_Num}"</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20220627 22:32:04.843" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20220627 22:32:04.843" endtime="20220627 22:32:04.844"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.843" endtime="20220627 22:32:04.844"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.840" endtime="20220627 22:32:04.844"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.839" endtime="20220627 22:32:04.844"></status>
+</kw>
+<msg timestamp="20220627 22:32:04.845" level="INFO">${invalidpassword} = fdasas</msg>
+<status status="PASS" starttime="20220627 22:32:04.825" endtime="20220627 22:32:04.845"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${invalidpassword}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.846" level="INFO">Typing text 'fdasas' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20220627 22:32:04.845" endtime="20220627 22:32:04.945"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.845" endtime="20220627 22:32:04.946"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:04.947" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20220627 22:32:04.947" endtime="20220627 22:32:06.109"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:04.946" endtime="20220627 22:32:06.109"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20220627 22:32:08.121" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220627 22:32:06.110" endtime="20220627 22:32:08.122"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:06.110" endtime="20220627 22:32:08.122"></status>
+</kw>
+<kw name="Verify Failure login" library="Login&amp;LogoutPageKeywords">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${msg_warning}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20220627 22:32:08.196" level="INFO">${temp} = Invalid credentials</msg>
+<status status="PASS" starttime="20220627 22:32:08.140" endtime="20220627 22:32:08.196"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Display warning Text is ${temp}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:08.196" endtime="20220627 22:32:08.197"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${temp}"=="${warningtext}"</arg>
+<arg>Log To Console</arg>
+<arg>Display Text is Correct</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>Display Text is not Correct</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Display Text is Correct</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:08.198" endtime="20220627 22:32:08.199"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:08.197" endtime="20220627 22:32:08.199"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:08.123" endtime="20220627 22:32:08.199"></status>
+</kw>
+<kw name="Close my browser" library="Login&amp;LogoutPageKeywords">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Close Browser</arg>
+</arguments>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220627 22:32:08.201" endtime="20220627 22:32:10.955"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:08.200" endtime="20220627 22:32:10.956"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:08.199" endtime="20220627 22:32:10.957"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:31:59.498" endtime="20220627 22:32:10.957" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t2" name="TC_002_Verify_Login_Valid_Credentials_message">
+<kw name="Open given Excel file" library="ExcelDataRead" type="setup">
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${sFileName}</arg>
+</arguments>
+<assign>
+<var>${inputfileStatus}</var>
+<var>${msg}</var>
+</assign>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:10.961" level="INFO" html="yes">File '&lt;a href="file://C:\EclipseWorkSpace\NetsDemo\TestData\OrangeHRM_TestData.xlsx"&gt;C:\EclipseWorkSpace\NetsDemo\TestData\OrangeHRM_TestData.xlsx&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20220627 22:32:10.961" endtime="20220627 22:32:10.962"></status>
+</kw>
+<msg timestamp="20220627 22:32:10.962" level="INFO">${inputfileStatus} = PASS</msg>
+<msg timestamp="20220627 22:32:10.962" level="INFO">${msg} = None</msg>
+<status status="PASS" starttime="20220627 22:32:10.960" endtime="20220627 22:32:10.962"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${inputfileStatus}"=="PASS"</arg>
+<arg>info</arg>
+<arg>${sFileName} Test data file exist</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Cannot locate the given Excel file.</arg>
+</arguments>
+<kw name="Info" library="robot.api.logger">
+<doc>Writes the message to the log file using the ``INFO`` level.</doc>
+<arguments>
+<arg>${sFileName} Test data file exist</arg>
+</arguments>
+<msg timestamp="20220627 22:32:10.964" level="INFO">C:/EclipseWorkSpace/NetsDemo/TestData/OrangeHRM_TestData.xlsx Test data file exist</msg>
+<status status="PASS" starttime="20220627 22:32:10.963" endtime="20220627 22:32:10.964"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:10.963" endtime="20220627 22:32:10.964"></status>
+</kw>
+<kw name="Open Excel" library="ExcelRobot">
+<doc>Opens the Excel file to read from the path provided in the file path parameter.</doc>
+<arguments>
+<arg>${sFileName}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:10.965" level="INFO">Opening file at C:/EclipseWorkSpace/NetsDemo/TestData/OrangeHRM_TestData.xlsx</msg>
+<status status="PASS" starttime="20220627 22:32:10.964" endtime="20220627 22:32:10.971"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:10.959" endtime="20220627 22:32:10.971"></status>
+</kw>
+<kw name="Open My Browser" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>executable_path=${executable_path}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:10.973" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220627 22:32:10.972" endtime="20220627 22:32:13.909"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${appUrl}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:13.913" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/'</msg>
+<status status="PASS" starttime="20220627 22:32:13.910" endtime="20220627 22:32:15.777"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:15.777" endtime="20220627 22:32:15.779"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220627 22:32:15.779" endtime="20220627 22:32:15.900"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:10.972" endtime="20220627 22:32:15.900"></status>
+</kw>
+<kw name="Get credentials from screen" library="Login&amp;LogoutPageKeywords">
+<assign>
+<var>${validusername}</var>
+<var>${validpassword}</var>
+</assign>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${get_credentials}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<msg timestamp="20220627 22:32:15.931" level="INFO">${temp} = ( Username : Admin | Password : admin123 )</msg>
+<status status="PASS" starttime="20220627 22:32:15.901" endtime="20220627 22:32:15.931"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${temp}</arg>
+</arguments>
+<assign>
+<var>@{words}</var>
+</assign>
+<msg timestamp="20220627 22:32:15.933" level="INFO">@{words} = [ ( | Username | : | Admin | | | Password | : | admin123 | ) ]</msg>
+<status status="PASS" starttime="20220627 22:32:15.932" endtime="20220627 22:32:15.933"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Username is ${words}[3]</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:15.933" endtime="20220627 22:32:15.934"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Password is ${words}[7]</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:15.934" endtime="20220627 22:32:15.935"></status>
+</kw>
+<msg timestamp="20220627 22:32:15.935" level="INFO">${validusername} = Admin</msg>
+<msg timestamp="20220627 22:32:15.936" level="INFO">${validpassword} = admin123</msg>
+<status status="PASS" starttime="20220627 22:32:15.901" endtime="20220627 22:32:15.936"></status>
+</kw>
+<kw name="Enter UserName" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${validusername}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginUserName}</arg>
+<arg>${userName}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:15.937" level="INFO">Typing text 'Admin' into text field 'name:txtUsername'.</msg>
+<status status="PASS" starttime="20220627 22:32:15.937" endtime="20220627 22:32:16.030"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:15.936" endtime="20220627 22:32:16.030"></status>
+</kw>
+<kw name="Enter Password" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${validpassword}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txt_loginPassword}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:16.034" level="INFO">Typing text 'admin123' into text field 'name:txtPassword'.</msg>
+<status status="PASS" starttime="20220627 22:32:16.033" endtime="20220627 22:32:16.136"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:16.032" endtime="20220627 22:32:16.136"></status>
+</kw>
+<kw name="Click SignIn" library="Login&amp;LogoutPageKeywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${btn_submitBtn}</arg>
+</arguments>
+<msg timestamp="20220627 22:32:16.138" level="INFO">Clicking button 'id:btnLogin'.</msg>
+<status status="PASS" starttime="20220627 22:32:16.138" endtime="20220627 22:32:18.431"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:16.137" endtime="20220627 22:32:18.432"></status>
+</kw>
+<kw name="Apply Wait" library="Login&amp;LogoutPageKeywords">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20220627 22:32:20.434" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220627 22:32:18.434" endtime="20220627 22:32:20.434"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:18.432" endtime="20220627 22:32:20.435"></status>
+</kw>
+<kw name="Verify Successful Login" library="Login&amp;LogoutPageKeywords">
+<assign>
+<var>${temp}</var>
+</assign>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Get Text</arg>
+<arg>${link_welcomeadmin}</arg>
+</arguments>
+<assign>
+<var>${temp}</var>
+</assign>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${link_welcomeadmin}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:20.437" endtime="20220627 22:32:20.465"></status>
+</kw>
+<msg timestamp="20220627 22:32:20.466" level="INFO">${temp} = Welcome Nick</msg>
+<status status="PASS" starttime="20220627 22:32:20.436" endtime="20220627 22:32:20.466"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${temp}"=="${successmsg}"</arg>
+<arg>Log To Console</arg>
+<arg>User is logged in Successfully</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>User is not logged in Successfully</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>User is not logged in Successfully</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:20.467" endtime="20220627 22:32:20.468"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:20.466" endtime="20220627 22:32:20.468"></status>
+</kw>
+<msg timestamp="20220627 22:32:20.468" level="INFO">${temp} = Welcome Nick</msg>
+<status status="PASS" starttime="20220627 22:32:20.435" endtime="20220627 22:32:20.469"></status>
+</kw>
+<kw name="Print the name" library="Login&amp;LogoutPageKeywords">
+<arguments>
+<arg>${temp}</arg>
+</arguments>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Split String</arg>
+<arg>${temp}</arg>
+</arguments>
+<assign>
+<var>@{words}</var>
+</assign>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${temp}</arg>
+</arguments>
+<status status="PASS" starttime="20220627 22:32:20.470" endtime="20220627 22:32:20.470"></status>
+</kw>
+<msg timestamp="20220627 22:32:20.471" level="INFO">@{words} = [ Welcome | Nick ]</msg>
+<status status="PASS" starttime="20220627 22:32:20.470" endtime="20220627 22:32:20.471"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Log To Console</arg>
+<arg>Logged in username is @{words}[1]</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Logged in username is @{words}[1]</arg>
+</arguments>
+<msg timestamp="20220627 22:32:20.472" level="WARN">Accessing variable items using '@{words}[1]' syntax is deprecated. Use '${words}[1]' instead.</msg>
+<status status="PASS" starttime="20220627 22:32:20.472" endtime="20220627 22:32:20.473"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:20.471" endtime="20220627 22:32:20.473"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:20.469" endtime="20220627 22:32:20.473"></status>
+</kw>
+<kw name="Close my browser" library="Login&amp;LogoutPageKeywords">
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Close Browser</arg>
+</arguments>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220627 22:32:20.475" endtime="20220627 22:32:23.218"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:20.474" endtime="20220627 22:32:23.219"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:20.474" endtime="20220627 22:32:23.221"></status>
+</kw>
+<status status="PASS" starttime="20220627 22:32:10.958" endtime="20220627 22:32:23.221" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20220627 22:31:58.178" endtime="20220627 22:32:23.224"></status>
+</suite>
+<status status="PASS" starttime="20220627 22:31:58.174" endtime="20220627 22:32:23.228"></status>
+</suite>
+<status status="PASS" starttime="20220627 22:31:58.149" endtime="20220627 22:32:23.231"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="NetsDemo">NetsDemo</stat>
+<stat pass="2" fail="0" id="s1-s1" name="Tests">NetsDemo.Tests</stat>
+<stat pass="2" fail="0" id="s1-s1-s1" name="01.OrangeHRMTestSuite">NetsDemo.Tests.01.OrangeHRMTestSuite</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220627 22:32:04.719" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 23: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<msg timestamp="20220627 22:32:04.728" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 32: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<msg timestamp="20220627 22:32:04.827" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 23: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<msg timestamp="20220627 22:32:04.839" level="WARN">Error in file 'C:\EclipseWorkSpace\NetsDemo\Resources\ExcelDataRead.resource' in FOR loop starting on line 32: Marking for loop body with '\' is deprecated. Remove markers and use 'END' instead.</msg>
+<msg timestamp="20220627 22:32:20.472" level="WARN">Accessing variable items using '@{words}[1]' syntax is deprecated. Use '${words}[1]' instead.</msg>
+</errors>
+</robot>
